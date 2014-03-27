@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+10.times do |i|
+
+	k= i+1
+	p = Van.create brand: "Volkswagen #{k}", model: "California", price: 40, year: 1992, description: "Esta es la descripcion de la furgoneta"
+
+	p.locations.create country: "Spain", city: "Madrid", street: "Calle Atocha", number: "3"
+	
+
+end
+
+

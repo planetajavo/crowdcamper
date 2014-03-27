@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= content_for?(:title) ? yield(:title) : "CrowdCamper" %></title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  </head>
+  <body class="home">
+    <div class="row">
+      <header>
+        <h1 class="logo thin minuspacing">Crowd<span class="bold minuspacing">Camper</span></h1>
+        <br>
+        <h2 class="subheader center">Disfruta de la libertad de moverte de una forma diferente</h2>
+      </header>
+    </div>
+    <div class="row">
+      <div class="small-6 large-centered columns">
+        <div class="panel callout radius panelhome">
+          <h4 class="subheader center">Empieza ya!</h4>
+          <label>¿Donde quieres recoger la furgo?
+            <input type="text" placeholder="ej. Cádiz" />
+          </label> 
+          <label>Fecha de recogida
+            <input type="date" placeholder="large-12.columns" />
+          </label> 
+          <label>Fecha de devolución
+            <input type="date" placeholder="large-12.columns" />
+          </label> 
+          <label>¿Cuantas personas viajan en la furgo?
+            <select>
+              <option value=1>1</option>
+              <option value=2>2</option>
+              <option value=3>3</option>
+              <option value=4>4</option>
+              <option value=5>5</option>
+              <option value=6>6</option>
+            </select>
+          </label>
+          <%= link_to 'Buscar mi furgo', vans_path, :class=>"button expand btnhome" %>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  
+ 
+

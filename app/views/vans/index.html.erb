@@ -1,0 +1,71 @@
+<div class="row">
+
+        <div class="large-9 columns">
+        <h1>Listing vans</h1>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @vans.each do |van| %>
+                <tr>
+                  <td><%= van.brand %></td>
+                  <td><%= van.model %></td>
+                  <td><%= van.year %></td>
+                  <td><%= van.price %></td>
+                  <td><%= van.description %></td>
+                  <td><%= link_to 'Show', van %></td>
+                  <td><%= link_to 'Destroy', van, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+          	</tbody>
+        	</table>
+        <br>
+          <%= link_to 'New Van', new_van_path %>
+        </div>
+
+
+        <div class="small-3 columns">
+          <aside>
+            <header>
+              <h3>Filtros</h3>
+              <p>ajusta tu búsqueda</p>
+            </header>
+
+            <article>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <label>Ciudad
+                  <input type="text" placeholder="ciudad" />
+                 </label>
+              </div>
+            </div>
+
+              
+
+              <div class="range-slider" id='slider' data-slider data-options="step: 10;">
+                <span class="range-slider-handle"></span>
+                <span class="range-slider-active-segment"></span>
+                <input type="hidden">
+              </div>
+
+              
+              
+            </article>
+          </aside>
+        </div>
+      </div>
+
+
+

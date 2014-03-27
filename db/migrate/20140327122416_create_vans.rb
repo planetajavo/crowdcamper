@@ -3,8 +3,9 @@ class CreateVans < ActiveRecord::Migration
     create_table :vans do |t|
     	t.string   "brand"
     	t.string   "model"
-    	t.string   "year"
+    	t.integer  "year"
     	t.decimal  "price"
+    	t.text     "description"
       t.timestamps
     end
   end

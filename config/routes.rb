@@ -2,7 +2,7 @@ Crowdcamper::Application.routes.draw do
 
   resources :vans
 
-  get '/' => 'site#home'
+  root 'sites#home'
   get '/contact' => 'site#contact'
 
 
