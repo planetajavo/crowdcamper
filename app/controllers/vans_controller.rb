@@ -1,5 +1,7 @@
 class VansController < ApplicationController
 
+	before_filter :authenticate_user!, except: [:index, :show]
+
 	def index
 		@vans = Van.all 
 	end
@@ -14,6 +16,7 @@ class VansController < ApplicationController
 
 	def create
 		@van = Van.create(van_params)
+		@van.user = current_user
 		redirect_to van_path(@van.id)
 	end
 
@@ -38,8 +41,4 @@ class VansController < ApplicationController
 	def van_params
 	  params.require(:van).permit(:brand, :model, :year, :description, :price )
 	end
-
-
-
-
 end
