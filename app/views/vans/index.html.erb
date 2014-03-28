@@ -1,77 +1,54 @@
 <div class="row">
-        <div class="row">
-          <div class="small-9 columns box">
-            <p>uhirfjaiejfirejfeklrj</p>
-          </div>
+  <div class="panel clearfix small-12 columns">
+    <h1>Opciones de búsqueda</h1>
+
+    <br>
+    
+    <div class="small-3 column">
+      <label>Ciudad de recogida y devolución
+        <input type="text" placeholder="ej. Cádiz" />
+      </label> 
+
+      <label>Fecha de recogida
+        <input type="date" placeholder="small-12.columns" />
+      </label> 
+
+      <label>Fecha de devolución
+        <input type="date" placeholder="large-12.columns" />
+      </label> 
+
+      <label>¿Cuantas personas viajan en la furgo?
+        <select>
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+          <option value=4>4</option>
+          <option value=5>5</option>
+          <option value=6>6</option>
+        </select>
+      </label>
+    </div>
+    <div class="small-9 column">
+       <div id="map-canvas"></div>
+    </div>
+  </div>
+</div>
+
+  <% @vans.each do |van| %>
+    <div class="small-12 columns applewrap">
+      <ul>
+          <li><%= van.brand %></li>
+          <li><%= van.model %></li>
+          <li><%= van.year %></li>
+          <li><%= van.price %></li>
+          <li><%= van.description %></li>
+          <li><%= link_to 'Show', van %></li>
+          <li><%= link_to 'Destroy', van, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+    </div>
+  <% end %>
           
-        </div>
-        
-
-        <div class="large-9 columns">
-        <h1>Listing vans</h1>
-
-          <table>
-            <thead>
-              <tr>
-                <th>Brand</th>
-                <th>Model</th>
-                <th>Year</th>
-                <th>Price</th>
-                <th>Description</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <% @vans.each do |van| %>
-                <tr>
-                  <td><%= van.brand %></td>
-                  <td><%= van.model %></td>
-                  <td><%= van.year %></td>
-                  <td><%= van.price %></td>
-                  <td><%= van.description %></td>
-                  <td><%= link_to 'Show', van %></td>
-                  <td><%= link_to 'Destroy', van, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                </tr>
-              <% end %>
-          	</tbody>
-        	</table>
-        <br>
-          <%= link_to 'New Van', new_van_path %>
-        </div>
-
-
-        <div class="small-3 columns">
-          <aside>
-            <header>
-              <h3 class="text-right">Filtros</h3>
-              <p class="text-right">ajusta tu búsqueda</p>
-            </header>
-
-            <article  class="text-left semi_padding">
-            <div class="row">
-              <div class="large-12 columns">
-                <label>Ciudad
-                  <input type="text" placeholder="ciudad" />
-                </label>
-              </div>
-            </div>
-
-              
-
-              <div class="range-slider" id='slider' data-slider data-options="step: 10;">
-                <span class="range-slider-handle"></span>
-                <span class="range-slider-active-segment"></span>
-                <input type="hidden">
-              </div>
-
-              
-              
-            </article>
-          </aside>
-        </div>
-      </div>
+    
 
 
 

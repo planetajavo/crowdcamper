@@ -1,5 +1,6 @@
 Crowdcamper::Application.routes.draw do
 
+  devise_for :users
   resources :vans
 
   root 'sites#home'
