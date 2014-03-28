@@ -23,7 +23,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+#gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'carrierwave'
 
 gem 'devise'
+
+gem 'simple_form'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -48,3 +50,4 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+

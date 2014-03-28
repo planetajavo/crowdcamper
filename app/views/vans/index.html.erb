@@ -3,8 +3,19 @@
     <h1>Opciones de búsqueda</h1>
 
     <br>
-    
     <div class="small-3 column">
+    <%= simple_form_for 'search', method: :get do |f|%>
+      <%= f.input :Lugar, placeholder: 'ej. Cádiz' %>
+      <%= f.input :Inicio, as: :custom_date %>
+      <%= f.input :Fin, as: :custom_date  %>
+      <%= f.submit 'Buscar', :class=>"button expand"  %>
+    <% end %>
+
+    </div>
+      <div class="small-9 column">
+       <div id="map-canvas"></div>
+    </div>
+  <!--  <div class="small-3 column">
       <label>Ciudad de recogida y devolución
         <input type="text" placeholder="ej. Cádiz" />
       </label> 
@@ -28,11 +39,9 @@
         </select>
       </label>
     </div>
-    <div class="small-9 column">
-       <div id="map-canvas"></div>
-    </div>
+  
   </div>
-</div>
+</div> -->
 
   <% @vans.each do |van| %>
     <div class="small-12 columns applewrap">

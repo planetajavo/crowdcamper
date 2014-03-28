@@ -25,6 +25,15 @@
   <%= @van.description %>
 	</p>
 
+	<p>
+		<strong>Owner:</strong>
+		<%= @van.user && @van.user.email || 'None' %>
+	</p>
+
+	<% if @van.user == current_user %>
+		
+	<% end %>
+
 
 <%= link_to 'Edit', edit_van_path(@van) %> |
 <%= link_to 'Back', vans_path %>

@@ -3,7 +3,11 @@ class VansController < ApplicationController
 	before_filter :authenticate_user!, except: [:index, :show]
 
 	def index
-		@vans = Van.all 
+			if params[:search] && params[:search][:city]
+				@vans = Location.search_by_city(params[:search][:city]).map(&:van)
+			else
+				@vans = Van.all 
+			end
 	end
 
 	def show 
@@ -15,8 +19,9 @@ class VansController < ApplicationController
 	end
 
 	def create
-		@van = Van.create(van_params)
+		@van = Van.new(van_params)
 		@van.user = current_user
+		@van.save
 		redirect_to van_path(@van.id)
 	end
 

@@ -14,16 +14,54 @@
  *= require_tree .
  */
 
- .home {
+ 
+
+	.transparent {background: transparent;}
+	.center {margin: auto; text-align: center;}
+	.bgwhite {background: #fff;}
+	.border_outline {border: 1px solid #999;}
+	.lightgrey {color: #999;}
+	.searchbar {border: 3px solid #000!important;}
+	.small {font-size: 0.3em!important;}
+	.uppercase {text-transform: uppercase;}
+	.greyli {background: #333!;}
+	.italic {font-style: italic;}
+	.textspacing {letter-spacing: 1px;}
+	.insane {font-size: 50px; line-height: 1.1em; margin:0;}
+	.thin {font-weight: 300;}
+	.bold {font-weight: 600;}
+	.medium {font-size: 0.6em;}
+	.center {text-align:center; margin:auto;}
+
+	/* Paddings and Margins */
+	.semi_padding {padding: 20px;}
+	.padding_right {padding-right: 20px;}
+	.semi_padding_right {padding-right: 20px;}
+	.semi_padding-left {padding-left: 20px;}
+	.semi_padding_bottom {padding-bottom: 20px;}
+	.semi_padding_top {padding-top: 20px;}
+	.padding_top {padding-top: 80px;}
+	.semi_margin-top {margin-top: 20px;}
+	.quarter_padding_right {padding-right: 10px;}
+	.semi_padding_left {padding-left: 20px;}
+	.margin-left {margin-left: 20px;}
+	.semi_padding_bottom {padding-bottom: 20px;}
+	.semi_margin_bottom {margin-bottom: 20px;}
+
+	.logo {
+	margin-top: 50px;
+	letter-spacing: -1px;
+	font-family: "Lato"; }
+	
+	
+.home {
  	
 	background-image: url('../images/fondo.png');
 	background-size: cover;
 	
 }
 
-.logo {
-	margin: 100px;
-}
+
  
  .box {
 
@@ -68,35 +106,10 @@ padding: 5px;
 margin: 10px;
 }
 
+#map-canvas {
+  height: 300px;
+  margin: 0px;
+  padding: 0px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+      }
 
-	.transparent {background: transparent;}
-	.center {margin: auto; text-align: center;}
-	.bgwhite {background: #fff;}
-	.border_outline {border: 1px solid #999;}
-	.lightgrey {color: #999;}
-	.searchbar {border: 3px solid #000!important;}
-	.small {font-size: 0.3em!important;}
-	.uppercase {text-transform: uppercase;}
-	.greyli {background: #333!;}
-	.italic {font-style: italic;}
-	.textspacing {letter-spacing: 1px;}
-	.insane {font-size: 50px; line-height: 1.1em; margin:0;}
-	.thin {font-weight: 300;}
-	.bold {font-weight: 600;}
-	.medium {font-size: 0.6em;}
-	.center {text-align:center; margin:auto;}
-
-	/* Paddings and Margins */
-	.semi_padding {padding: 20px;}
-	.padding_right {padding-right: 20px;}
-	.semi_padding_right {padding-right: 20px;}
-	.semi_padding-left {padding-left: 20px;}
-	.semi_padding_bottom {padding-bottom: 20px;}
-	.semi_padding_top {padding-top: 20px;}
-	.padding_top {padding-top: 80px;}
-	.semi_margin-top {margin-top: 20px;}
-	.quarter_padding_right {padding-right: 10px;}
-	.semi_padding_left {padding-left: 20px;}
-	.margin-left {margin-left: 20px;}
-	.semi_padding_bottom {padding-bottom: 20px;}
-	.semi_margin_bottom {margin-bottom: 20px;}
