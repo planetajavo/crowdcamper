@@ -1,10 +1,11 @@
 class Van < ActiveRecord::Base
 	has_many :locations
 	has_many :images
-	has_many :unavailabilities
+	has_many :rentals
+	has_many :downtimes
 	belongs_to :user
 
-	mount_uploader :image, ImageUploader
+	accepts_nested_attributes_for :images
 
 
 end

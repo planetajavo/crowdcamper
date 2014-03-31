@@ -1,4 +1,4 @@
-<%= form_for(@van, html: {multipart: true}) do |f| %>
+<%= simple_form_for(@van, html: {multipart: true}) do |f| %>
   <% if @van.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@van.errors.count, "error") %> prohibited this van from being saved:</h2>
@@ -12,26 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :brand %><br>
-    <%= f.text_field :brand %>
+    <%= f.input :brand %>
   </div>
   <div class="field">
-    <%= f.label :model %><br>
-    <%= f.text_field :model %>
+    <%= f.input :model %>
   </div>
   <div class="field">
-    <%= f.label :year %><br>
-    <%= f.number_field :year %>
+    <%= f.input :year %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.input :description %>
   </div>
   <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
+    <%= f.input :price %>
   </div>
-  
+  <div class="">
+  <%= f.fields_for :images do |image| %>
+    <%= image.label :image %><br />
+    <%= image.file_field :image %>
+  <% end %>
+    
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

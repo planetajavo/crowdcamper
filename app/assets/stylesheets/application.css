@@ -12,6 +12,9 @@
  *= require foundation_and_overrides
 
  *= require_tree .
+ 
+ *= require jquery.ui.all
+ 
  */
 
  
@@ -51,14 +54,34 @@
 	.logo {
 	margin-top: 50px;
 	letter-spacing: -1px;
-	font-family: "Lato"; }
-	
+	font-family: "Lato";
+	}
+	.logo:hover
+{
+color:#1B676B;
+
+}
+.btnvan {
+	padding: 30px;
+}
+.primary {
+
+	color: #1B676B;
+}	
+
+.primary:hover {
+
+	font-weight: 800;
+}
 	
 .home {
  	
 	background-image: url('../images/fondo.png');
 	background-size: cover;
 	
+}
+.panelhome {
+	margin-top: 50px;
 }
 
 
@@ -75,6 +98,7 @@
 width: 100%;
 display: block;
 height: 200px;
+float: left;
 background: white;
 border: 1px solid;
 border-color: #e5e5e5 #dbdbdb #d2d2d2;
@@ -86,6 +110,7 @@ border-radius: 4px;
 box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
 padding: 10px;
 margin-top: 20px;
+margin-bottom: 20px;
 }
 
 
@@ -107,9 +132,11 @@ margin: 10px;
 }
 
 #map-canvas {
-  height: 300px;
-  margin: 0px;
+  height: 330px;
+  margin: 20px;
   padding: 0px;
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
       }
+
+
 

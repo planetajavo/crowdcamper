@@ -1,3 +1,5 @@
 class Image < ActiveRecord::Base
-	Belongs_to :van
+	belongs_to :van
+	mount_uploader :image, ImageUploader
+	
 end

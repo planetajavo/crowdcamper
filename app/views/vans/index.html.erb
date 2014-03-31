@@ -1,61 +1,60 @@
 <div class="row">
-  <div class="panel clearfix small-12 columns">
-    <h1>Opciones de búsqueda</h1>
-
+  <div class="panel callout small-9 columns">
+    <h3>Encuentra tu furgo</h3>
     <br>
     <div class="small-3 column">
-    <%= simple_form_for 'search', method: :get do |f|%>
-      <%= f.input :Lugar, placeholder: 'ej. Cádiz' %>
-      <%= f.input :Inicio, as: :custom_date %>
-      <%= f.input :Fin, as: :custom_date  %>
-      <%= f.submit 'Buscar', :class=>"button expand"  %>
-    <% end %>
-
+      <%= simple_form_for 'search', method: :get do |f|%>
+        <%= f.input :Lugar, placeholder: 'ej. Cádiz' %>
+        <%= f.input :Inicio, as: :custom_date %>
+        <%= f.input :Fin, as: :custom_date  %>
+        <%= f.input :source_type, :label => "Número de personas", :collection => ["1","2","3","4"], :selected => "2" %>
+        <%= f.submit 'Buscar', :class=>"button expand"  %>
+      <% end %>
     </div>
-      <div class="small-9 column">
-       <div id="map-canvas"></div>
+    <div class="small-9 column">
+      <div id="map-canvas"></div>
     </div>
-  <!--  <div class="small-3 column">
-      <label>Ciudad de recogida y devolución
-        <input type="text" placeholder="ej. Cádiz" />
-      </label> 
-
-      <label>Fecha de recogida
-        <input type="date" placeholder="small-12.columns" />
-      </label> 
-
-      <label>Fecha de devolución
-        <input type="date" placeholder="large-12.columns" />
-      </label> 
-
-      <label>¿Cuantas personas viajan en la furgo?
-        <select>
-          <option value=1>1</option>
-          <option value=2>2</option>
-          <option value=3>3</option>
-          <option value=4>4</option>
-          <option value=5>5</option>
-          <option value=6>6</option>
-        </select>
-      </label>
-    </div>
-  
   </div>
-</div> -->
+  <div class="small-3 columns text-right">
+    <h4>Filtros</h4>
+    <%= simple_form_for 'search', method: :get do |f|%>
+        <%= f.input :Combustible, as: :boolean%>
+        <%= f.input :Inicio, as: :custom_date %>
+        <%= f.input :Fin, as: :custom_date  %>
+        <%= f.input :source_type, :label => "Número de personas", :collection => ["1","2","3","4"], :selected => "2" %>
+        <%= f.submit 'Buscar', :class=>"button expand"  %>
+      <% end %>
 
+  </div>
+  
   <% @vans.each do |van| %>
-    <div class="small-12 columns applewrap">
-      <ul>
-          <li><%= van.brand %></li>
-          <li><%= van.model %></li>
-          <li><%= van.year %></li>
-          <li><%= van.price %></li>
-          <li><%= van.description %></li>
-          <li><%= link_to 'Show', van %></li>
-          <li><%= link_to 'Destroy', van, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-      </ul>
+    <div class="small-9 columns applewrap">
+      <div class="row">
+        <div class="small-3 columns">
+          
+          <%= image_tag("pic.png") %>
+        </div>
+        <div class="small-9 columns">
+          <h4><%= van.brand %> <%= van.model %> <%= van.year %></h4>
+          <div class="small-4 columns">
+            
+            <h3 class="primary bold"><%= van.price %> <p>Euros/día</p></h3>
+          </div>
+          <div class="small-4 columns">
+            <ul class="inline-list">
+              <li><%= link_to 'Show', van %></li>
+              <li><%= link_to 'Destroy', van, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            </ul>
+            <%= link_to 'Reservar esta furgo', vans_path, :class=>"button tiny radius right btnvan" %>
+          </div>
+          
+        </div>
+      </div>
     </div>
   <% end %>
+  
+
+  
           
     
 

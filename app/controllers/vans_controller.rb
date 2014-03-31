@@ -12,10 +12,12 @@ class VansController < ApplicationController
 
 	def show 
 		@van = Van.find(params[:id])
+		
 	end
 
 	def new 
 		@van = Van.new
+		1.times { @van.images.build }
 	end
 
 	def create
@@ -44,6 +46,6 @@ class VansController < ApplicationController
 	private
 
 	def van_params
-	  params.require(:van).permit(:brand, :model, :year, :description, :price )
+	  params.require(:van).permit(:brand, :model, :year, :description, :price, images_attributes: ['image'])
 	end
 end

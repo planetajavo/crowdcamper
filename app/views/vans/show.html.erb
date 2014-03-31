@@ -1,5 +1,4 @@
 <div class="row">
-	
 	<p>
   <strong>Brand:</strong>
   <%= @van.brand %>
@@ -25,13 +24,24 @@
   <%= @van.description %>
 	</p>
 
+	
+
 	<p>
 		<strong>Owner:</strong>
 		<%= @van.user && @van.user.email || 'None' %>
 	</p>
 
-	<% if @van.user == current_user %>
+	<p>
+		<strong>Foto:</strong>
+		<%	@van.images.each do |i| %>
+			<%= image_tag(i.image,height: '200', width: '200') %>	
+		<% end %>
 		
+		
+	</p>
+
+	<% if @van.user == current_user %>
+		<%= render 'vans/downtimes/create' %>
 	<% end %>
 
 
@@ -40,3 +50,4 @@
 
 </div>
 
+	
