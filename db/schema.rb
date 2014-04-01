@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140328094608) do
+ActiveRecord::Schema.define(version: 20140401134432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "downtimes", force: true do |t|
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "images", force: true do |t|
     t.datetime "created_at"
@@ -51,14 +44,12 @@ ActiveRecord::Schema.define(version: 20140328094608) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "van_id"
   end
 
-  create_table "unavailabilities", force: true do |t|
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "rentals", ["user_id"], name: "index_rentals_on_user_id", using: :btree
+  add_index "rentals", ["van_id"], name: "index_rentals_on_van_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

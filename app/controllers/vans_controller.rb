@@ -3,12 +3,7 @@ class VansController < ApplicationController
 	before_filter :authenticate_user!, except: [:index, :show]
 
 	def index
-			if params[:search] && params[:search][:Lugar] != ''
-				@lugar = params[:search][:Lugar]
-				@vans = Location.search_by_city(@lugar).map(&:van)
-			else
-				@vans = Van.all 
-			end
+			@vans = vans_filtered
 	end
 
 	def show 
@@ -52,5 +47,37 @@ class VansController < ApplicationController
 
 	def van_params
 	  params.require(:van).permit(:brand, :model, :year, :description, :price, images_attributes: ['image'], locations_attributes: ['city'])
+	end
+
+	def vans_filtered
+		vans = Van.all
+			if params[:search] 
+				if params[:search][:Lugar] != ''
+					@lugar = params[:search][:Lugar]
+					vans = vans.search_by_city(@lugar)
+				end
+
+				if params[:search][:Inicio] != ''
+					@inicio = params[:search][:Inicio]
+				end
+
+				if params[:search][:Fin] != ''
+					@fin = params[:search][:Fin]
+				end
+
+				if @inicio && @fin
+					ocuppied_vans = Van.filter_by_rented(@inicio,@fin)
+				end
+
+				if params[:search][:source_type] != ''
+					@personas = params[:search][:source_type]
+					vans = vans.filter_by_ocupants(@personas)
+				end
+
+				if ocuppied_vans
+					vans = vans - ocuppied_vans
+				end
+			end
+		vans
 	end
 end

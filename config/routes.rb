@@ -1,7 +1,12 @@
 Crowdcamper::Application.routes.draw do
 
   devise_for :users
-  resources :vans
+  resources :vans do
+    member do
+      post 'rentals' => 'rentals#create'
+      get 'rentals/:rental_id' => 'rentals#show'
+    end
+  end
 
   root 'sites#home'
   get '/contact' => 'site#contact'

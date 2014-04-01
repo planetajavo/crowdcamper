@@ -1,57 +1,63 @@
 <div class="row">
-  <div class="panel callout small-9 columns">
+  <div class="panel callout large-12 columns">
     <h3>Encuentra tu furgo</h3>
     <br>
-    <div class="small-3 column">
+    <div class="large-4 column">
       <%= simple_form_for 'search', method: :get, controller: :vans, action: :index do |f|%>
         <%= f.input :Lugar, placeholder: 'ej. Cádiz',input_html: { value: @lugar || ""}  %>
-        <%= f.input :Inicio, as: :custom_date %>
-        <%= f.input :Fin, as: :custom_date  %>
-        <%= f.input :source_type, :label => "Número de personas", :collection => ["1","2","3","4"], :selected => "2" %>
+        <%= f.input :Inicio, as: :custom_date, input_html: { value: @inicio}  %>
+        <%= f.input :Fin, as: :custom_date, input_html: { value: @fin}  %>
+        <%= f.input :source_type, :label => "Número de personas", :collection => ["1","2","3","4"], :selected => @personas %>
         <%= f.submit 'Buscar', :class=>"button expand"  %>
       <% end %>
     </div>
-    <div class="small-9 column">
+    <div class="large-8 column">
       <div id="map-canvas"></div>
     </div>
   </div>
-  <div class="small-3 columns text-right">
-    <h4>Filtros</h4>
-    <%= simple_form_for 'search', method: :get do |f|%>
-        <%= f.input :Combustible, as: :boolean%>
-        
-        <%= f.submit 'Buscar', :class=>"button expand"  %>
-      <% end %>
 
-  </div>
+
   
+  
+  <div>
+    <% if @vans.count == 0 %>
+      <h4>No hay ninguna furgoneta con esos datos.</h4>
+      <h4 class="subheader">Por favor, modifica tus parametros de búsqueda</h4>
+      <% else %>
+        <h4>Fenomenal hemos encontrado <span class"primary"><%= @vans.count %></span> furgos con esos criterios</h4>
+      <% end %>
+  </div>
+
   <% @vans.each do |van| %>
-    <div class="small-9 columns applewrap">
+  <div class"row">
+     <div class="large-12 columns applewrap">
       <div class="row">
-        <div class="small-3 columns">
+        <div class="large-3 columns">
 
           <%= image_tag("pic.png") %>
         </div>
-        <div class="small-9 columns">
+        <div class="large-9 columns">
           <h4><%= van.brand %> <%= van.model %> <%= van.year %></h4>
-          <div class="small-4 columns">
+          <div class="large-4 columns">
             
             <h3 class="primary bold"><%= van.price %> <p>Euros/día</p></h3>
           </div>
-          <div class="small-4 columns">
+          <div class="large-4 columns">
             <ul class="inline-list">
               <li><%= link_to 'Show', van %></li>
               <li><%#= link_to 'Destroy', van, method: :delete, data: { confirm: 'Are you sure?' } %></li>
             </ul>
-            <%= link_to 'Reservar esta furgo', van, :class=>"button tiny radius right btnvan" %>
+            <% if @inicio && @fin %>
+            <%= link_to 'Reservar esta furgo', rentals_van_path(van.id, start_at: @inicio, end_at: @fin), :class=>"button tiny radius right btnvan", method: :post %>
+            <% end %>
           </div>
           
         </div>
       </div>
     </div>
+  </div>
+   
   <% end %>
-
-
   
 
   
