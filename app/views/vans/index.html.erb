@@ -3,8 +3,8 @@
     <h3>Encuentra tu furgo</h3>
     <br>
     <div class="small-3 column">
-      <%= simple_form_for 'search', method: :get do |f|%>
-        <%= f.input :Lugar, placeholder: 'ej. Cádiz' %>
+      <%= simple_form_for 'search', method: :get, controller: :vans, action: :index do |f|%>
+        <%= f.input :Lugar, placeholder: 'ej. Cádiz',input_html: { value: @lugar || ""}  %>
         <%= f.input :Inicio, as: :custom_date %>
         <%= f.input :Fin, as: :custom_date  %>
         <%= f.input :source_type, :label => "Número de personas", :collection => ["1","2","3","4"], :selected => "2" %>
@@ -19,9 +19,7 @@
     <h4>Filtros</h4>
     <%= simple_form_for 'search', method: :get do |f|%>
         <%= f.input :Combustible, as: :boolean%>
-        <%= f.input :Inicio, as: :custom_date %>
-        <%= f.input :Fin, as: :custom_date  %>
-        <%= f.input :source_type, :label => "Número de personas", :collection => ["1","2","3","4"], :selected => "2" %>
+        
         <%= f.submit 'Buscar', :class=>"button expand"  %>
       <% end %>
 
@@ -31,7 +29,7 @@
     <div class="small-9 columns applewrap">
       <div class="row">
         <div class="small-3 columns">
-          
+
           <%= image_tag("pic.png") %>
         </div>
         <div class="small-9 columns">
@@ -43,15 +41,17 @@
           <div class="small-4 columns">
             <ul class="inline-list">
               <li><%= link_to 'Show', van %></li>
-              <li><%= link_to 'Destroy', van, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              <li><%#= link_to 'Destroy', van, method: :delete, data: { confirm: 'Are you sure?' } %></li>
             </ul>
-            <%= link_to 'Reservar esta furgo', vans_path, :class=>"button tiny radius right btnvan" %>
+            <%= link_to 'Reservar esta furgo', van, :class=>"button tiny radius right btnvan" %>
           </div>
           
         </div>
       </div>
     </div>
   <% end %>
+
+
   
 
   

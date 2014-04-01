@@ -3,8 +3,9 @@ class VansController < ApplicationController
 	before_filter :authenticate_user!, except: [:index, :show]
 
 	def index
-			if params[:search] && params[:search][:city]
-				@vans = Location.search_by_city(params[:search][:city]).map(&:van)
+			if params[:search] && params[:search][:Lugar] != ''
+				@lugar = params[:search][:Lugar]
+				@vans = Location.search_by_city(@lugar).map(&:van)
 			else
 				@vans = Van.all 
 			end
@@ -17,7 +18,8 @@ class VansController < ApplicationController
 
 	def new 
 		@van = Van.new
-		1.times { @van.images.build }
+		@van.images.build 
+		@van.locations.build
 	end
 
 	def create
@@ -29,12 +31,15 @@ class VansController < ApplicationController
 
 	def edit
 		@van = Van.find(params[:id])
+		@van.images.build
 	end
 
 	def update
 		
 		@van = Van.find(params[:id])
 		@van.update(van_params)
+		redirect_to van_path(@van.id)
+
 	end
 
 	def destroy
@@ -46,6 +51,6 @@ class VansController < ApplicationController
 	private
 
 	def van_params
-	  params.require(:van).permit(:brand, :model, :year, :description, :price, images_attributes: ['image'])
+	  params.require(:van).permit(:brand, :model, :year, :description, :price, images_attributes: ['image'], locations_attributes: ['city'])
 	end
 end

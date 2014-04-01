@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(version: 20140328094608) do
     t.datetime "updated_at"
   end
 
+  create_table "unavailabilities", force: true do |t|
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -77,6 +84,7 @@ ActiveRecord::Schema.define(version: 20140328094608) do
     t.integer  "year"
     t.decimal  "price"
     t.text     "description"
+    t.integer  "capacity"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"

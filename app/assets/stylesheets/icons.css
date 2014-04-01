@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?ol7heq');
-	src:url('fonts/icomoon.eot?#iefixol7heq') format('embedded-opentype'),
-		url('fonts/icomoon.woff?ol7heq') format('woff'),
-		url('fonts/icomoon.ttf?ol7heq') format('truetype'),
-		url('fonts/icomoon.svg?ol7heq#icomoon') format('svg');
+	src:url('icomoon.eot?-gprhjz');
+	src:url('icomoon.eot?#iefix-gprhjz') format('embedded-opentype'),
+		url('icomoon.woff?-gprhjz') format('woff'),
+		url('icomoon.ttf?-gprhjz') format('truetype'),
+		url('icomoon.svg?-gprhjz#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,6 +23,12 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-pink-camper-van2:before {
+	content: "\e608";
+}
+.icon-pink-camper-van:before {
+	content: "\e607";
+}
 .icon-twitter:before {
 	content: "\e600";
 }

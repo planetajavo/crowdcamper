@@ -28,9 +28,14 @@
   </div>
   <div class="">
   <%= f.fields_for :images do |image| %>
-    <%= image.label :image %><br />
+    <%= image.label :image %><br>
     <%= image.file_field :image %>
   <% end %>
+  <div class="field">
+      <%= f.simple_fields_for :locations do |l| %>
+        <%= l.input :city %>
+      <% end %>
+  </div>
     
   </div>
   <div class="actions">

@@ -8,11 +8,28 @@
 10.times do |i|
 
 	k= i+1
-	p = Van.create brand: "Volkswagen #{k}", model: "California", price: 40, year: 1992, description: "Esta es la descripcion de la furgoneta"
+
+	u = User.create email: "user#{k}@example.com", password: "12345678"
+
+	p = Van.create brand: "Volkswagen#{k}", model: "California", price: 40, year: 1992, description: "Esta es la descripcion de la furgoneta"
 
 	p.locations.create country: "Spain", city: "Madrid", street: "Calle Atocha", number: "3"
 	
+	
 
 end
+
+10.times do |i|
+
+	k= i+1
+
+	p = Van.create brand: "Volkswagen#{k}", model: "Multivan", price: 30, year: 1999, description: "Esta es la descripcion de la furgoneta"
+
+	p.locations.create country: "Spain", city: "Valencia", street: "Calle Atocha", number: "3"
+	
+	
+
+end
+
 
 

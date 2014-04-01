@@ -6,6 +6,7 @@ class CreateVans < ActiveRecord::Migration
     	t.integer  "year"
     	t.decimal  "price"
     	t.text     "description"
+      t.integer  "capacity"
       t.timestamps
     end
   end

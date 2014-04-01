@@ -5,7 +5,7 @@ class Van < ActiveRecord::Base
 	has_many :downtimes
 	belongs_to :user
 
-	accepts_nested_attributes_for :images
+	accepts_nested_attributes_for :images, :locations
 
 
 end

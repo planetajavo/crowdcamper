@@ -1,13 +1,61 @@
 <div class="row">
-	<p>
-  <strong>Brand:</strong>
-  <%= @van.brand %>
-	</p>
+	<h1 class="left"><%= @van.brand %> <%= @van.model %> </h1>
 
-	<p>
-  <strong>Model:</strong>
-  <%= @van.model %>
-	</p>
+	<div class="orbit-container">
+	  <ul data-orbit class="example-orbit orbit-slides-container">
+			
+				<li>
+      		<img src="assets/pic.png" alt="slide 1" />
+      		<div class="orbit-caption">
+        		Caption One.
+      		</div>
+    		</li>
+    <li class="active">
+      <img src="http://placehold.it/1000x300/EE964D/fff" alt="slide 2" />
+      <div class="orbit-caption">
+        Caption Two.
+      </div>
+    </li>
+    <li>
+      <img src="http://placehold.it/1000x300/FDC43D/fff" alt="slide 3" />
+      <div class="orbit-caption">
+        Caption Three.
+      </div>
+    </li>
+			
+	    
+	  </ul>
+
+	  <!-- Navigation Arrows -->
+	  <a href="#" class="orbit-prev">Prev <span></span></a>
+	  <a href="#" class="orbit-next">Next <span></span></a>
+
+	  <!-- Slide Numbers -->
+	  <div class="orbit-slide-number">
+	    <span>1</span> of <span>3</span>
+	  </div>
+
+	  <!-- Timer and Play/Pause Button -->
+	  <div class="orbit-timer">
+	    <span></span>
+	    <div class="orbit-progress"></div>
+	  </div>
+			  <!-- Bullets -->
+		<ol class="orbit-bullets">
+		  <li data-orbit-slide-number="1"></li>
+		  <li data-orbit-slide-number="2"></li>
+		  <li data-orbit-slide-number="3"></li>
+		</ol>
+	</div>
+
+
+
+
+</div>
+<h2 class="subheader"><%= @van.price %> €/día</h2>
+
+
+<div class="row">
 
 	<p>
   <strong>Year:</strong>
@@ -15,16 +63,9 @@
 	</p>
 
 	<p>
-  <strong>Price:</strong>
-  <%= @van.price %>
-	</p>
-
-	<p>
   <strong>Description:</strong>
   <%= @van.description %>
 	</p>
-
-	
 
 	<p>
 		<strong>Owner:</strong>
@@ -34,10 +75,8 @@
 	<p>
 		<strong>Foto:</strong>
 		<%	@van.images.each do |i| %>
-			<%= image_tag(i.image,height: '200', width: '200') %>	
+			<%= image_tag(i.image, height: '200', width: '200') %>	
 		<% end %>
-		
-		
 	</p>
 
 	<% if @van.user == current_user %>
@@ -49,5 +88,11 @@
 <%= link_to 'Back', vans_path %>
 
 </div>
+
+<script>
+      $(document).foundation();
+</script>
+
+
 
 	

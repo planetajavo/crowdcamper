@@ -31,9 +31,6 @@
       <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
         <!--<script type="text/javascript" src="//use.typekit.net/wwu2exi.js"></script>
       <script type="text/javascript">try{Typekit.load();}catch(e){}</script>-->
-
-
-     
     </head>
 
     <body>
@@ -41,8 +38,10 @@
         <div class="contain-to-grid sticky" data-options="sticky_on: large">
           <nav class="top-bar" data-topbar>
             <ul class="title-area">
+
               <li class="name">
-                <h1 class="logo thin minuspacing"><%= link_to 'CrowdCamper', vans_path %></h1>
+                <h1 class="logo">
+                <%= link_to 'CrowdCamper', vans_path, class: "icon-pink-camper-van2 white" %></h1>
               </li>
               <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
             </ul>
@@ -54,7 +53,10 @@
                 <% if user_signed_in? %>
                   <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
                 <% else %>
-                  <%= link_to 'Sign in', new_user_session_path %>
+                  <a data-reveal-id="sign_in" data-reveal>
+                    Sign in
+                  </a>
+                  
                 <% end %>   
               </li>
                 
@@ -62,7 +64,9 @@
                 <% if user_signed_in? %>
                   <%= link_to current_user.email, destroy_user_session_path, method: :delete %>
                 <% else %>
-                  <%= link_to 'Register', new_user_registration_path %>
+                  <a data-reveal-id="register" data-reveal>
+                  Register
+                  </a>
                 <% end %> 
                 
               </li>
@@ -76,15 +80,12 @@
 
 
         <div class="row">
-
           <div class="large-12 columns">
             <p class="notice"><%= notice %></p>
             <p class="alert"><%= alert %></p>
+          <%= yield %>
           </div>
-            <%= yield %>
-          
         </div>
-        
         
         <!-- Footer -->
       
@@ -99,7 +100,7 @@
                   <li><a href="#">¿Porqué CrowdCamper?</a></li>
                   <li><a href="#">¿Cómo funciona?</a></li>
                   <li><a href="#">Contacto</a></li>
-                  <li><i class="fi-heart"></i></li>
+                  <li><a class="icon-twitter"></a></li>
                 </ul>
               </div>
             </div>
@@ -108,6 +109,14 @@
         
         <%= javascript_include_tag "application" %>
         <script src="/assets/foundation/foundation.slider.js?body=1"></script>
+
+        <div id="sign_in" class="reveal-modal tiny" data-reveal>
+          <%= render template: "devise/sessions/new" %>
+        </div>
+
+        <div id="register" class="reveal-modal tiny" data-reveal>
+          <%= render template: "devise/registrations/new" %>
+        </div>
 
    
     <!-- Other JS plugins can be included here -->

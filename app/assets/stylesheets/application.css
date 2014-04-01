@@ -12,9 +12,6 @@
  *= require foundation_and_overrides
 
  *= require_tree .
- 
- *= require jquery.ui.all
- 
  */
 
  
@@ -51,16 +48,24 @@
 	.semi_padding_bottom {padding-bottom: 20px;}
 	.semi_margin_bottom {margin-bottom: 20px;}
 
-	.logo {
+	.logo h1{
 	margin-top: 50px;
 	letter-spacing: -1px;
 	font-family: "Lato";
+	width:200px;
+	display:inline-block;
 	}
 	.logo:hover
 {
 color:#1B676B;
-
 }
+.top-bar .name h1 a {
+	padding: 0px!important;
+}
+
+
+
+
 .btnvan {
 	padding: 30px;
 }
@@ -84,6 +89,15 @@ color:#1B676B;
 	margin-top: 50px;
 }
 
+.logoicon {
+	color: white;
+	font-size: 50px;
+	display: inline-block;
+}
+
+.top-bar .name h1 a {
+	display:inline-block!important;
+}
 
  
  .box {
@@ -93,11 +107,19 @@ color:#1B676B;
  	box-shadow: 2px 2px 2px #e7e7e7;
  	
  }
+.white {
+	color: #fff;
+	}
+
+.big {
+	font-size: 2.5em;
+}
 
  .applewrap {
+
 width: 100%;
 display: block;
-height: 200px;
+height: 175px;
 float: left;
 background: white;
 border: 1px solid;
@@ -138,5 +160,8 @@ margin: 10px;
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
       }
 
+.columns:last-child {
+	float: left !important;
+}
 
 

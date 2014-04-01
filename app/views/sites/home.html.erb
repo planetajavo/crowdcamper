@@ -20,25 +20,15 @@
     <div class="row">
       <div class="small-6 small-centered columns">
         <div class="panel callout radius panelhome">
-          <h4 class="subheader center">Empieza ya!</h4>
-          <label>¿Donde quieres recoger la furgo?
-            <input type="text" placeholder="ej. Cádiz" />
-          </label> 
-          <label>Fecha de recogida
-            <input type="date" placeholder="large-12.columns" />
-          </label> 
-          <label>Fecha de devolución
-            <input type="date" placeholder="large-12.columns" />
-          </label> 
-          <label>¿Cuantas personas viajan en la furgo?
-            <select>
-              <option value=1>1</option>
-              <option value=2>2</option>
-              <option value=3>3</option>
-              <option value=4>4</option>
-            </select>
-          </label>
-          <%= link_to 'Buscar mi furgo', vans_path, :class=>"button expand btnhome" %>
+            <h4 class="subheader center">Empieza ya!</h4>
+          <%= simple_form_for 'search', url: vans_path, method: :get do |f|%>
+            <%= f.input :Lugar, placeholder: 'ej. Cádiz' %>
+            <%= f.input :Inicio, :label =>"Fecha de recogida",as: :custom_date %>
+            <%= f.input :Fin, :label =>"Fecha de devolución", as: :custom_date  %>
+            <%= f.input :source_type, :label => "Número de personas", :collection => ["1","2","3","4"], :selected => "2" %>
+            <%= f.submit 'Buscar mi furgo', :class=>"button expand"  %>
+
+          <% end %>
         </div>
       </div>
     </div>

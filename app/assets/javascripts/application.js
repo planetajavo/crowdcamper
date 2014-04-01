@@ -13,9 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require foundation.orbit
 
-//= require jquery.ui.all
-
-//= require_tree .
+// require_tree .
 
 $(function(){ $(document).foundation(); });
