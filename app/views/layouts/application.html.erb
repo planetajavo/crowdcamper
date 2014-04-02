@@ -13,10 +13,10 @@
          <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
           <script>
           var map;
-          function initialize() {     
-            var mapOptions = {
-              zoom: 12,
-              center: new google.maps.LatLng(40.4183406, -3.691789,15)
+          function initialize() {    
+            var mapOptions = {            
+              zoom: 10,
+              center: new google.maps.LatLng(40.4378271, -3.6795367)
             };
             map = new google.maps.Map(document.getElementById('map-canvas'),
               mapOptions);
@@ -49,6 +49,9 @@
 
               <!-- Right Nav Section -->
             <ul class="right">
+
+              <li><a class="icon-twitter white"></a></li>
+              
               <li>
                 <% if user_signed_in? %>
                   <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
