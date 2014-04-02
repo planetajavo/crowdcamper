@@ -46,9 +46,9 @@
           </div>
           <div class="large-8 columns">
             
-            <% if @inicio && @fin %>
-              <%= link_to 'Reservar esta furgo', rentals_van_path(van.id, start_at: @inicio, end_at: @fin), :class=>"button  radius right btnvan", method: :get %>
-            <% end %>
+            <%# if @inicio && @fin %>
+              <%= link_to 'Reservar esta furgo', new_van_path(van.id, start_at: @inicio, end_at: @fin), :class=>"button  radius right btnvan", method: :get %>
+            <%# end %>
 
 
           </div>

@@ -10,7 +10,7 @@
 		<h5 class="subheader">Entrega:</h5>
 		<h3 class="primary">Entrega:</h3>
 
-		<%= link_to 'Confirmar reserva', rentals_van_path(@van_id, start_at: @start_at, end_at: @end_at), :class=>"button  radius right btnvan", method: :post %>
+		<%= link_to 'Confirmar reserva', confirm_rental_path(@van.id, start_at: @start_at, end_at: @end_at), :class=>"button  radius right btnvan", method: :post %>
 		
 	</div> 
 

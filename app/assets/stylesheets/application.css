@@ -55,6 +55,11 @@
 	width:200px;
 	display:inline-block;
 	}
+
+	.slider {
+		
+		width: 600px;
+	}
 	.logo:hover
 {
 color:#1B676B;
@@ -63,6 +68,12 @@ color:#1B676B;
 .hdr {
 	margin-top: 50px;
 }
+
+
+.top-bar-section ul{
+	background: #1B676B!important;
+}
+
 .top-bar .name h1 a {
 	padding: 0px!important;
 }

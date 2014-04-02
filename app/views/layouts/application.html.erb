@@ -41,7 +41,7 @@
 
               <li class="name">
                 <h1 class="logo">
-                <%= link_to 'CrowdCamper', vans_path, class: "icon-pink-camper-van2 white" %></h1>
+                <%= link_to 'CrowdCamper', vans_path%></h1>
               </li>
               <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
             </ul>
@@ -50,7 +50,7 @@
               <!-- Right Nav Section -->
             <ul class="right">
 
-              <li><a class="icon-twitter white"></a></li>
+              <li><a class="button white">Alquila tu furgo</a></li>
               
               <li>
                 <% if user_signed_in? %>
@@ -111,7 +111,7 @@
 
         
         <%= javascript_include_tag "application" %>
-        <script src="/assets/foundation/foundation.slider.js?body=1"></script>
+        
 
         <div id="sign_in" class="reveal-modal tiny" data-reveal>
           <%= render template: "devise/sessions/new" %>
@@ -124,6 +124,8 @@
    
     <!-- Other JS plugins can be included here -->
 
+   <%= content_for?(:extrajs) ? yield(:extrajs) : "" %>
+    
     <script>
       $(document).foundation();
     </script>

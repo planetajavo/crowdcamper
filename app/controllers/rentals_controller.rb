@@ -6,11 +6,13 @@ class RentalsController < ApplicationController
 	end
 
 	def confirm
-		@rental = find_rental_with_id(params[:rental_id])
-		@rental.confirm
-		save_rental
-		send_approvation_email
-		render 'rentals/approved.html'
+
+		
+		@rental = create_rental_from_params(params)
+		
+		UserMailer.ask_for_rental(params).deliver
+	      	
+		render 'waiting_approval'
 	end
 
 	def show
@@ -20,7 +22,7 @@ class RentalsController < ApplicationController
 	def new
 		@start_at = params[:start_at]
 		@end_at = params[:end_at]
-		@van_id = params[:id]
+		@van = Van.find(params[:id])
 		render 'rentals/new.html'
 	end
 
@@ -50,8 +52,8 @@ class RentalsController < ApplicationController
 		send_email_to(rental.user.email)
 	end
 
-	def find_rental_with_id(id)
-		Rental.find(id)
+	def find_rental_with_id(rental_id)
+		Rental.find(params[:rental_id])
 	end
 
 	def save_rental(rental)
