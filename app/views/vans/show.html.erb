@@ -1,54 +1,51 @@
 <div class="row">
-	<h1 class="left"><%= @van.brand %> <%= @van.model %> </h1>
 
+<div class="large-6 columns">
 	<div class="slider">
-	  <ul data-orbit data-options="timer_speed: 100;animation: fade;">
+	  <ul data-orbit data-options="timer_speed: 1500;animation: fade;">
 			<%	@van.images.each do |i| %>
-				<li><%= image_tag(i.image, height: '400', width: '400') %></li>
+				<% if i.image? %>
+				<li><%= image_tag(i.image, height: '500', width: '500') %></li>
+				<% end %>
 			<% end %>
   	</ul>
+	</div> 
+</div>
+
+<div class="large-6 columns">
+	<div class="panel callout radius panelficha">
+		<h1 class="left"><%= @van.brand %> <%= @van.model %> </h1>
+		<div class"row">
+			<h2 class="primary"><%= @van.price %> €/día</h2>
+		</div>
+		
+		<hr>
+		<p>
+	  <strong>Año:</strong>
+	  <%= @van.year %>
+		</p>
+		<p>
+	  <strong>Descripción:</strong>
+	  <%= @van.description %>
+		</p>
+		<p>
+	  <strong>Número de plazas:</strong>
+	  <%= @van.capacity %>
+		</p>
+		<p>
+			<strong>Contacto del dueño:</strong>
+			<%= @van.user && @van.user.email || 'None' %>
+		</p>
+
+		<%= link_to 'Edit', edit_van_path(@van), :class=>"label radius white" %> |
+		<%= link_to 'Back', vans_path, :class=>"label radius white" %>
 	</div>
-			
-
-
-
+		
 </div>
-<h2 class="subheader"><%= @van.price %> €/día</h2>
 
 
-<div class="row">
-
-	<p>
-  <strong>Year:</strong>
-  <%= @van.year %>
-	</p>
-
-	<p>
-  <strong>Description:</strong>
-  <%= @van.description %>
-	</p>
-
-	<p>
-		<strong>Owner:</strong>
-		<%= @van.user && @van.user.email || 'None' %>
-	</p>
-
-	<p>
-		<strong>Foto:</strong>
-		<%	@van.images.each do |i| %>
-			<%= image_tag(i.image, height: '200', width: '200') %>	
-		<% end %>
-	</p>
-
-	<% if @van.user == current_user %>
-		redirect_to vans_path
-	<% end %>
 
 
-<%= link_to 'Edit', edit_van_path(@van) %> |
-<%= link_to 'Back', vans_path %>
-
-</div>
 
 <% content_for :extrajs do %>
   <%= javascript_include_tag "foundation" %>

@@ -35,7 +35,7 @@
      <div class="large-12 columns applewrap">
       <div class="row">
         <div class="large-3 columns">
-          <%= image_tag("pic.png") %>
+          <%= image_tag(van.images.first.image) %>
         </div>
         <div class="large-9 columns">
 
@@ -47,7 +47,7 @@
           <div class="large-8 columns">
             
             <%# if @inicio && @fin %>
-              <%= link_to 'Reservar esta furgo', new_van_path(van.id, start_at: @inicio, end_at: @fin), :class=>"button  radius right btnvan", method: :get %>
+              <%= link_to 'Reservar esta furgo', new_rental_van_path(van.id, start_at: @inicio, end_at: @fin), :class=>"button  radius right btnvan", method: :get %>
             <%# end %>
 
 

@@ -46,7 +46,7 @@ class VansController < ApplicationController
 	private
 
 	def van_params
-	  params.require(:van).permit(:brand, :model, :year, :description, :price, images_attributes: ['image'], locations_attributes: ['city'])
+	  params.require(:van).permit(:brand, :model, :year, :description, :capacity, :price, images_attributes: ['image', 'id'], locations_attributes: ['city', 'id'])
 	end
 
 	def vans_filtered

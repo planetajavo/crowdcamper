@@ -8,7 +8,7 @@ class Van < ActiveRecord::Base
 	accepts_nested_attributes_for :images, :locations
 
 	scope :search_by_city, lambda { |city| 
-		joins(:locations).where(['locations.city like ?',city])
+		joins(:locations).where(['lower(locations.city) like lower(?)',city])
 	}
 
 	scope :filter_by_rented, lambda { |start_at, end_at|

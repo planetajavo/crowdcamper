@@ -5,7 +5,7 @@ Crowdcamper::Application.routes.draw do
     member do
       post 'rentals' => 'rentals#create'
       get 'rentals/:rental_id' => 'rentals#show'
-      get 'rentals' => 'rentals#new', as: :new
+      get 'rentals' => 'rentals#new', as: :new_rental
     end
   end
 

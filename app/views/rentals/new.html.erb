@@ -1,18 +1,30 @@
 <div class="row">
 
-	<div class="large-12 columns">
-		<h1>Detalles de la reserva</h1>
+	<div class="large-12 columns panel">
+		<div class="large-9 columns">
+			<h2>Solicitud de reserva</h2>
+			<br>
+			
+			<h5 class="subheader">Datos de la furgo:</h5>
+			<h4 class="primary"><%= @van.brand %>  <%= @van.model %> <%= @van.year %></h4>
 
+			<h5 class="subheader">Datos del propietario:</h5>
+			<h4 class="primary"><%= @van.user.email %></h4>
 
-		<h5 class="subheader">Tus datos:</h5>
-		<h5 class="subheader">Datos de la furgo:</h5>
-		<h5 class="subheader">Regogida:</h5>
-		<h5 class="subheader">Entrega:</h5>
-		<h3 class="primary">Entrega:</h3>
+			<h5 class="subheader">Ciudad:</h5>
+			<h4 class="primary"><%= @city %></h4>
+			
+			<h5 class="subheader">Fechas</h5>
+			
+			
+			<h5 class="subheader">Recogida: </h5>
+			<h4 class="primary"><%= @start_at %></h4>
+			<h5 class="subheader">Entrega: </h5>
+			<h4 class="primary"><%= @end_at %></h4>
+		</div>
 
-		<%= link_to 'Confirmar reserva', confirm_rental_path(@van.id, start_at: @start_at, end_at: @end_at), :class=>"button  radius right btnvan", method: :post %>
-		
+		<div class="large-3 columns">
+			<%= link_to 'Confirmar reserva', confirm_rental_path(@van.id, start_at: @start_at, end_at: @end_at), :class=>"button  radius right", method: :post %>
+		</div>	
 	</div> 
-
-
 </div>

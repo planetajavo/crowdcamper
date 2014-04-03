@@ -58,12 +58,16 @@
 
 	.slider {
 		
-		width: 600px;
+		width: 400px;
 	}
 	.logo:hover
 {
 color:#1B676B;
 }
+
+.panelficha {
+	margin-bottom: 5em!important;
+} 
 
 .hdr {
 	margin-top: 50px;
@@ -73,12 +77,17 @@ color:#1B676B;
 .top-bar-section ul{
 	background: #1B676B!important;
 }
+body {
+	background: url('../images/background.png') ;
+}
 
 .top-bar .name h1 a {
 	padding: 0px!important;
 }
 
-
+.rounded{
+	border-radius: 50%;
+}
 
 
 .btnvan {
@@ -86,7 +95,7 @@ color:#1B676B;
 }
 .primary {
 
-	color: #1B676B;
+	color: #1B676B!important;
 }	
 
 .primary:hover {
@@ -102,6 +111,9 @@ color:#1B676B;
 }
 .panelhome {
 	margin-top: 50px;
+}
+.minuspacing{
+	letter-spacing: -1px;
 }
 
 .logoicon {
@@ -123,7 +135,7 @@ color:#1B676B;
  	
  }
 .white {
-	color: #fff;
+	color: #fff!important;
 	}
 
 .big {
@@ -170,3 +182,67 @@ margin: 10px;
 }
 
 
+
+
+
+
+
+
+
+.cbp-af-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #f6f6f6;
+    z-index: 10000;
+    height: 230px;
+    overflow: hidden;
+    -webkit-transition: height 0.3s;
+    -moz-transition: height 0.3s;
+    transition: height 0.3s;
+}
+ 
+.cbp-af-header .cbp-af-inner {
+    width: 90%;
+    max-width: 69em;
+    margin: 0 auto;
+    padding: 0 1.875em;
+}
+ 
+.cbp-af-header h1,
+.cbp-af-header nav {
+    display: inline-block;
+    position: relative;
+}
+ 
+ /* We just have one-lined elements, so we'll center the elements with the line-height set to the height of the header */
+.cbp-af-header h1,
+.cbp-af-header nav a {
+    line-height: 230px;
+}
+ 
+.cbp-af-header h1 {
+    text-transform: uppercase;
+    color: #333;
+    letter-spacing: 4px;
+    font-size: 4em;
+    margin: 0;
+    float: left;
+}
+ 
+.cbp-af-header nav {
+    float: right;
+}
+ 
+.cbp-af-header nav a {
+    color: #aaa;
+    font-weight: 700;
+    margin: 0 0 0 20px;
+    font-size: 1.4em;
+}
+ 
+.cbp-af-header nav a:hover {
+    color: #333;
+}
+ 

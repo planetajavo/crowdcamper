@@ -10,7 +10,7 @@ class RentalsController < ApplicationController
 		
 		@rental = create_rental_from_params(params)
 		
-		UserMailer.ask_for_rental(params).deliver
+		UserMailer.ask_for_rental(id: params[:id], rental_id: @rental.id).deliver
 	      	
 		render 'waiting_approval'
 	end
@@ -23,6 +23,7 @@ class RentalsController < ApplicationController
 		@start_at = params[:start_at]
 		@end_at = params[:end_at]
 		@van = Van.find(params[:id])
+	 	@city = @van.locations.first.city
 		render 'rentals/new.html'
 	end
 

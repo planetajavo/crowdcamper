@@ -20,6 +20,20 @@
             };
             map = new google.maps.Map(document.getElementById('map-canvas'),
               mapOptions);
+
+             var marker = new google.maps.Marker({ 
+          position: new google.maps.LatLng(40.42708, -3.678335),
+          map: map
+          });
+
+             var image = 'http://code.google.com/apis/maps/documentation/v3/examples/images/beachflag.png';
+
+             
+            var beachMarker = new google.maps.Marker({
+          position: new google.maps.LatLng(40.482104, -3.6493242),
+          map: map,
+          icon: image
+        });
           }
 
           google.maps.event.addDomListener(window, 'load', initialize);
@@ -27,6 +41,7 @@
           </script>
      
 
+          
 
       <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
         <!--<script type="text/javascript" src="//use.typekit.net/wwu2exi.js"></script>
@@ -41,7 +56,7 @@
 
               <li class="name">
                 <h1 class="logo">
-                <%= link_to 'CrowdCamper', vans_path%></h1>
+                <%= link_to 'CrowdCamper', vans_path, { :class=>" bold " }%></h1>
               </li>
               <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
             </ul>
@@ -49,9 +64,8 @@
 
               <!-- Right Nav Section -->
             <ul class="right">
-
-              <li><a class="button white">Alquila tu furgo</a></li>
-              
+              <li><%= link_to 'Alquila tu furgo', new_van_path, { :class=>"button white" } %></li>
+             
               <li>
                 <% if user_signed_in? %>
                   <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
@@ -120,6 +134,8 @@
         <div id="register" class="reveal-modal tiny" data-reveal>
           <%= render template: "devise/registrations/new" %>
         </div>
+
+        
 
    
     <!-- Other JS plugins can be included here -->
